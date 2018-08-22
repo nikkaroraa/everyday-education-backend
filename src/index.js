@@ -1,27 +1,21 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import { json, urlencoded } from 'body-parser';
+import { GraphQLServer } from 'graphql-yoga';
 
-import routes from './config/routes';
+
+import resolvers from './resolvers';
 import constants from './config/constants';
 
-const app = express();
 
-app.use(morgan('dev'));
-app.use(cors());
-app.use(json());
-app.use(urlencoded({
-  extended: true,
-}));
+const { PORT } = constants;
 
-
-app.get(routes.Status, (req, res) => {
-  res.json({ status: 'Working!' });
+const server = new GraphQLServer({
+  typeDefs: './src/schema.graphql',
+  resolvers,
 });
 
-const server = app.listen(constants.PORT, () => {
-  console.log(`Backend is running on PORT: ${constants.PORT}`);
-});
+const options = {
+  port: PORT,
+};
 
-export default server;
+server.start(options, ({ port }) => {
+  console.log(`🚀  Server ready at http://localhost:${port}`);
+});
