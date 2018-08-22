@@ -5,9 +5,10 @@
   "license": "MIT",
   "author": "Nikhil Arora <narora200@gmail.com>",
   "scripts": {
-    "start": "node build",
+    "start": "NODE_ENV=production node build",
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
+    "deploy:now": "now && now alias && now remove everyday-education --safe -y",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"

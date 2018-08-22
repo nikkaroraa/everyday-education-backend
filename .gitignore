@@ -24,4 +24,8 @@ coverage
 # Benchmarking
 benchmarks/graphs
 
+# Environment Variables
 .env
+
+# Production Code
+build

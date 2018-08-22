@@ -1,0 +1,9 @@
+{
+  "name": "everyday-education",
+  "alias": "everyday-education.now.sh",
+  "type": "npm",
+  "public": true,
+  "engines": {
+    "node": "^8.0.0"
+  }
+}
