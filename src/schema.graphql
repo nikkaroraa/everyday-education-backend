@@ -1,0 +1,9 @@
+type Query {
+  status: Status!
+}
+
+
+type Status {
+  statusCode: Int!
+  working:  Boolean!
+}
