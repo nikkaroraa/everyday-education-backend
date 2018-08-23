@@ -17,5 +17,6 @@ const options = {
 };
 
 server.start(options, ({ port }) => {
+  // eslint-disable-next-line no-console
   console.log(`🚀  Server ready at http://localhost:${port}`);
 });
