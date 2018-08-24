@@ -13,7 +13,7 @@ type Status {
 
 
 type Mutation {
-  newLearning(
+  addLearning(
     date: DateTime!,
     username: String!
     learningDescription: String!

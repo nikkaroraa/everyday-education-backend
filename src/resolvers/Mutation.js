@@ -1,4 +1,4 @@
-const newLearning = (_, args, { db }, info) => (
+const addLearning = (_, args, { db }, info) => (
   db.mutation.createLearning({
     data: {
       ...args,
@@ -7,5 +7,5 @@ const newLearning = (_, args, { db }, info) => (
 );
 
 export default {
-  newLearning,
+  addLearning,
 };
