@@ -10,3 +10,12 @@ type Status {
   statusCode: Int!
   working:  Boolean!
 }
+
+
+type Mutation {
+  newLearning(
+    date: DateTime!,
+    username: String!
+    learningDescription: String!
+  ): Learning!
+}
