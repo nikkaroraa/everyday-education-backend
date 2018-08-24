@@ -1,7 +1,10 @@
+# import Learning from "./generated/prisma.graphql"
+
 type Query {
   status: Status!
+  learnings: [Learning!]!
+  learning(username: String!): Learning
 }
-
 
 type Status {
   statusCode: Int!

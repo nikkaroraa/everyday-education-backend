@@ -1,0 +1,10 @@
+endpoint: ${env:PRISMA_ENDPOINT}
+
+datamodel: datamodel.graphql
+
+secret: ${env:PRISMA_SECRET}
+
+# Deploy hook
+hooks:
+  post-deploy:
+    - yarn get:graphql-schema

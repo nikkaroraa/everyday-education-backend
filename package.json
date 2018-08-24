@@ -9,6 +9,8 @@
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
     "deploy:now": "now && now alias && now remove everyday-education --safe -y",
+    "deploy:prisma": "prisma deploy",
+    "get:graphql-schema": "graphql get-schema --project database",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
@@ -33,7 +35,11 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "graphql-cli": "^2.16.5",
     "graphql-yoga": "^1.16.1",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "prisma": "^1.14.2",
+    "prisma-binding": "^2.1.4"
   }
 }

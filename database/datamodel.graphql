@@ -1,0 +1,7 @@
+type Learning {
+  id: ID! @unique
+  date: DateTime!
+  username: String!
+  learningDescription: String!
+  createdAt: DateTime!
+}
