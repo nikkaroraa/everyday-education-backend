@@ -29,3 +29,6 @@ benchmarks/graphs
 
 # Production Code
 build
+
+# config file for "now"
+now.json

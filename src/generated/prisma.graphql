@@ -1,0 +1,351 @@
+# source: https://us1.prisma.sh/nikhil-arora-eecdb7/everyday-education/dev
+# timestamp: Fri Aug 24 2018 12:35:11 GMT+0530 (IST)
+
+type AggregateLearning {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+scalar DateTime
+
+type Learning implements Node {
+  id: ID!
+  date: DateTime!
+  username: String!
+  learningDescription: String!
+  createdAt: DateTime!
+}
+
+"""A connection to a list of items."""
+type LearningConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [LearningEdge]!
+  aggregate: AggregateLearning!
+}
+
+input LearningCreateInput {
+  date: DateTime!
+  username: String!
+  learningDescription: String!
+}
+
+"""An edge in a connection."""
+type LearningEdge {
+  """The item at the end of the edge."""
+  node: Learning!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum LearningOrderByInput {
+  id_ASC
+  id_DESC
+  date_ASC
+  date_DESC
+  username_ASC
+  username_DESC
+  learningDescription_ASC
+  learningDescription_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type LearningPreviousValues {
+  id: ID!
+  date: DateTime!
+  username: String!
+  learningDescription: String!
+  createdAt: DateTime!
+}
+
+type LearningSubscriptionPayload {
+  mutation: MutationType!
+  node: Learning
+  updatedFields: [String!]
+  previousValues: LearningPreviousValues
+}
+
+input LearningSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [LearningSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [LearningSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [LearningSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: LearningWhereInput
+}
+
+input LearningUpdateInput {
+  date: DateTime
+  username: String
+  learningDescription: String
+}
+
+input LearningWhereInput {
+  """Logical AND on all given filters."""
+  AND: [LearningWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [LearningWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [LearningWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  date: DateTime
+
+  """All values that are not equal to given value."""
+  date_not: DateTime
+
+  """All values that are contained in given list."""
+  date_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  date_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  date_lt: DateTime
+
+  """All values less than or equal the given value."""
+  date_lte: DateTime
+
+  """All values greater than the given value."""
+  date_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  date_gte: DateTime
+  username: String
+
+  """All values that are not equal to given value."""
+  username_not: String
+
+  """All values that are contained in given list."""
+  username_in: [String!]
+
+  """All values that are not contained in given list."""
+  username_not_in: [String!]
+
+  """All values less than the given value."""
+  username_lt: String
+
+  """All values less than or equal the given value."""
+  username_lte: String
+
+  """All values greater than the given value."""
+  username_gt: String
+
+  """All values greater than or equal the given value."""
+  username_gte: String
+
+  """All values containing the given string."""
+  username_contains: String
+
+  """All values not containing the given string."""
+  username_not_contains: String
+
+  """All values starting with the given string."""
+  username_starts_with: String
+
+  """All values not starting with the given string."""
+  username_not_starts_with: String
+
+  """All values ending with the given string."""
+  username_ends_with: String
+
+  """All values not ending with the given string."""
+  username_not_ends_with: String
+  learningDescription: String
+
+  """All values that are not equal to given value."""
+  learningDescription_not: String
+
+  """All values that are contained in given list."""
+  learningDescription_in: [String!]
+
+  """All values that are not contained in given list."""
+  learningDescription_not_in: [String!]
+
+  """All values less than the given value."""
+  learningDescription_lt: String
+
+  """All values less than or equal the given value."""
+  learningDescription_lte: String
+
+  """All values greater than the given value."""
+  learningDescription_gt: String
+
+  """All values greater than or equal the given value."""
+  learningDescription_gte: String
+
+  """All values containing the given string."""
+  learningDescription_contains: String
+
+  """All values not containing the given string."""
+  learningDescription_not_contains: String
+
+  """All values starting with the given string."""
+  learningDescription_starts_with: String
+
+  """All values not starting with the given string."""
+  learningDescription_not_starts_with: String
+
+  """All values ending with the given string."""
+  learningDescription_ends_with: String
+
+  """All values not ending with the given string."""
+  learningDescription_not_ends_with: String
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+}
+
+input LearningWhereUniqueInput {
+  id: ID
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createLearning(data: LearningCreateInput!): Learning!
+  updateLearning(data: LearningUpdateInput!, where: LearningWhereUniqueInput!): Learning
+  deleteLearning(where: LearningWhereUniqueInput!): Learning
+  upsertLearning(where: LearningWhereUniqueInput!, create: LearningCreateInput!, update: LearningUpdateInput!): Learning!
+  updateManyLearnings(data: LearningUpdateInput!, where: LearningWhereInput): BatchPayload!
+  deleteManyLearnings(where: LearningWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Query {
+  learnings(where: LearningWhereInput, orderBy: LearningOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Learning]!
+  learning(where: LearningWhereUniqueInput!): Learning
+  learningsConnection(where: LearningWhereInput, orderBy: LearningOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LearningConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  learning(where: LearningSubscriptionWhereInput): LearningSubscriptionPayload
+}

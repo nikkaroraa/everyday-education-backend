@@ -3,4 +3,14 @@ const status = () => ({
   working: true,
 });
 
-export default { status };
+
+const learnings = (parent, args, context, info) => {
+  const { db } = context;
+  return db.query.learnings({}, info);
+};
+
+
+export default {
+  status,
+  learnings,
+};
