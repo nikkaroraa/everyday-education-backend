@@ -8,7 +8,7 @@
     "start": "NODE_ENV=production node build",
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
-    "deploy:now": "now && now alias && now remove everyday-education --safe -y",
+    "deploy:now": "now && now alias && now remove everyday-education-backend --safe -y",
     "deploy:prisma": "prisma deploy",
     "get:graphql-schema": "graphql get-schema --project database",
     "test": "jest",
